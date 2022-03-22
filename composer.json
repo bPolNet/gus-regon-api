@@ -1,0 +1,35 @@
+{
+    "name": "primotly/gus-regon-api",
+    "description": "GUS REGON API",
+    "keywords": [
+        "REGON",
+        "NIP",
+        "KRS",
+        "Soap"
+    ],
+    "type": "library",
+    "require": {
+        "php": ">=7.2",
+        "ext-soap": "*",
+        "gusapi/gusapi": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "symfony/var-dumper": "^5.0",
+        "symplify/easy-coding-standard": "^10.1"
+    },
+    "authors": [
+        {
+            "name": "Piotr Synowiec",
+            "email": "piotr.synowiec@bpol.net.pl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Primotly\\GusRegonApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "Primotly\\GusRegonApi\\Tests\\": "tests/" }
+    }
+}
