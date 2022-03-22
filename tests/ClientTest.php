@@ -34,12 +34,21 @@ class ClientTest extends TestCase
         $this->assertSame('0000137445', $info->getNationalCourtRegisterId());
     }
 
-    public function testGetGusInfoByNipThrows(): void
+    public function testGetGusInfoByNipThrowsNotFound(): void
     {
         $client = new Client(new Config(), new Transformer());
 
         $this->expectException(GusRegonApiException::class);
         $this->expectExceptionMessage('Not found');
         $client->getGusInfoByNip('not-existing');
+    }
+
+    public function testGetGusInfoByNipThrowsWrongApiKey(): void
+    {
+        $client = new Client(new Config('wrong-api-key'), new Transformer());
+
+        $this->expectException(GusRegonApiException::class);
+        $this->expectExceptionMessage('Invalid API user key');
+        $client->getGusInfoByNip('6792737681');
     }
 }
