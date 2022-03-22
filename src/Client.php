@@ -65,11 +65,7 @@ class Client
 
     private function createClient(): GusApi
     {
-        if (null === $this->config->getApiKey()) {
-            return new GusApi('abcde12345abcde12345', 'dev');
-        }
-
-        return new GusApi($this->config->getApiKey());
+        return new GusApi($this->config->getApiKey(), $this->config->isDev() ? 'dev' : 'prod');
     }
 
     private function getClient(): GusApi
